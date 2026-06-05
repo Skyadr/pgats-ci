@@ -1,0 +1,9 @@
+stages:
+  - run
+
+manual-exec:
+  stage: run
+  image: alpine:latest
+  script:
+    - echo "Executando pipeline manual no GitLab CI"
+  when: manual
