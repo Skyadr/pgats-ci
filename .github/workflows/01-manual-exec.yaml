@@ -16,7 +16,7 @@ jobs:
   e2e-tests:
     # maquina onde o job vai rodar
     #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: [self-hosted, windows, x64, pgats-ci]
     # passos do job
     steps:
       # clone do projeto
@@ -37,7 +37,7 @@ jobs:
 
       # instalação dos Browsers do Playwright
       - name: Instalando Browsers do Playwright
-        run: yarn playwright install
+        run: yarn playwright install --with-deps
 
       # executar os testes e2e
       - name: Executando testes e2e
