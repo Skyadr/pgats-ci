@@ -1,4 +1,4 @@
-image: node:24.x
+image: node:24
 
 stages:
   - e2e
