@@ -8,14 +8,9 @@ e2e-tests:
   when: manual   # equivalente ao workflow_dispatch (execução manual)
 
   script:
-    - echo "Instalando Yarn"
-    - npm install -g yarn
-
-    - echo "Instalando dependências"
-    - yarn
-
-    - echo "Instalando browser do Playwright"
-    - yarn playwright install --with-deps
+  
+    - echo "Instalando browser do Playwright" # equivalente ao comando yarn playwright
+    - npx playwright install --with-deps
 
     - echo "Executando testes e2e"
     - yarn run e2e
