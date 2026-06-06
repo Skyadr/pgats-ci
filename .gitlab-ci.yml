@@ -1,4 +1,4 @@
-image: node:24
+image: node:18
 
 stages:
   - e2e
@@ -8,6 +8,8 @@ e2e-tests:
   when: manual   # equivalente ao workflow_dispatch (execução manual)
 
   script:
+    - echo "Instalando dependências"
+    - yarn install
   
     - echo "Instalando browser do Playwright" # equivalente ao comando yarn playwright
     - npx playwright install --with-deps
