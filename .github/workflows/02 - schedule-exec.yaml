@@ -37,7 +37,7 @@ jobs:
 
       #instalação do browser do playwright
       - name: Instalando o browser do Playwright
-        run: yarn playwright install
+        run: npx playwright install --with-deps
 
       #execução dos testes e2e
       - name: Executando os testes e2e
