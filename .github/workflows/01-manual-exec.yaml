@@ -44,7 +44,6 @@ jobs:
         uses: ctrf-io/github-test-reporter@v1
         with:
           report-path: './ctrf/*.json'
-        with:
           github-report: true
           summary-report: true
           if: always()
