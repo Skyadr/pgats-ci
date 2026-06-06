@@ -42,8 +42,9 @@ jobs:
 
       - name: Publish Test Report
         uses: ctrf-io/github-test-reporter@v1
+        if: always()
         with:
           report-path: './ctrf/*.json'
           github-report: true
           summary-report: true
-          if: always()
+          
