@@ -6,6 +6,7 @@ name: 'Execução por deploy'
 #gatilho manual = workflow_dispatch
 #gatilho agendado = schedule
 #gatilho após a conclusão de outra pipeline = workflow_run
+
 on:
   workflow_run:
     workflows: ["Execução Manual", "Schedule Execution"]
