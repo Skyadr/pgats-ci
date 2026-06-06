@@ -10,6 +10,10 @@ on:
     # 1 - minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
     - cron: '*/5 * * * *' # Executa a cada 5 minutos
 
+  push:
+    branches:
+      - master
+
 #jobs - tarefas dentro da pipeline
 jobs:
   #nome do job
@@ -42,3 +46,10 @@ jobs:
       #execução dos testes e2e
       - name: Executando os testes e2e
         run: yarn run e2e
+
+      - name: Salvando relatórios de testes
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          path: ./playwright-report
+          name: Relatório de Testes E2E
