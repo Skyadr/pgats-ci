@@ -7,6 +7,11 @@ name: 'Execução Integrada'
 # gatilho por conclusão de outra pipeline = workflow_run
 on:
   workflow_dispatch:
+
+  push:
+    branches:
+      - master
+
 #tarefas dentro da pipeline = jobs
 jobs:
   #nome do job
@@ -75,6 +80,13 @@ jobs:
 
       - name: Executando os testes e2e
         run: yarn run e2e
+
+      - name: Salvando relatórios de testes
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          path: ./playwright-report
+          name: Relatório de Testes E2E
 
   deploy:
     runs-on: ubuntu-latest
