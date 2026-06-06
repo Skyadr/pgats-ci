@@ -40,7 +40,7 @@ jobs:
 
       #instalação do browser do playwright
       - name: Instalando o browser do Playwright
-        run: npx playwright install --with-deps
+        run: yarn playwright install
 
       - name: Verificar Playwright
         run: npx playwright --version

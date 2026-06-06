@@ -78,7 +78,7 @@ jobs:
         run: yarn
 
       - name: Instalando o browser do Playwright
-        run: npx playwright install --with-deps
+        run: yarn playwright install
 
       - name: Executando os testes e2e
         run: yarn run e2e
