@@ -45,6 +45,6 @@ jobs:
         if: always()
         with:
           report-path: './ctrf/*.json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           github-report: true
           summary-report: true
-          
