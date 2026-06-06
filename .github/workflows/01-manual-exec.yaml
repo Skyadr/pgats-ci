@@ -49,15 +49,6 @@ jobs:
       - name: Executando os testes e2e
         run: yarn run e2e
 
-      - name: Publish Test Report
-        if: always()
-        uses: ctrf-io/github-test-reporter@v1
-        with:
-          report-path: './ctrf/report.json'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          github-report: true
-          summary-report: true
-
       - name: Salvando relatórios de testes
         uses: actions/upload-artifact@v4
         if: ${{ always() }}
