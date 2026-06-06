@@ -8,7 +8,7 @@ on:
   schedule:
     # cronograma de execução - formato cron
     # 1 - minuto, 2 - hora, 3 - dia do mês, 4 - mês, 5 - dia da semana
-    - cron: '*/5 * * * *' # Executa a cada 5 minutos
+    - cron: '0 12 * * *' # Formato UTC - Executa todo dia as 09:00 horário de Brasília (UTC-3)
 
   push:
     branches:
@@ -20,6 +20,8 @@ jobs:
   e2e-tests:
     #maquina onde o job vai rodar
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
 
     #passos do job
     steps:

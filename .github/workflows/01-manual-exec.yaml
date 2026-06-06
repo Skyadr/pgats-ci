@@ -17,6 +17,8 @@ jobs:
   e2e-tests:
     #maquina onde o job vai rodar
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
 
     #passos do job
     steps:
@@ -39,6 +41,9 @@ jobs:
       #instalação do browser do playwright
       - name: Instalando o browser do Playwright
         run: npx playwright install --with-deps
+
+      - name: Verificar Playwright
+        run: npx playwright --version
 
       #execução dos testes e2e
       - name: Executando os testes e2e

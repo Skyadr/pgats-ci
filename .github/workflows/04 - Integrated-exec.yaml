@@ -18,6 +18,8 @@ jobs:
   inspecao:
     # maquina onde o job vai rodar
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
     # passos do job
     steps:
       # clone do projeto

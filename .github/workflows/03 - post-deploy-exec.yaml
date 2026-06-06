@@ -22,6 +22,8 @@ jobs:
   e2e-tests:
     #maquina onde o job vai rodar
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
     #condição para execução - somente se a pipeline anterior tiver sido concluída com sucesso
     #if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
