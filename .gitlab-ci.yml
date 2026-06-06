@@ -1,9 +1,21 @@
-stages:
-  - run
+image: node:24.x
 
-manual-exec:
-  stage: run
-  image: alpine:latest
+stages:
+  - e2e
+
+e2e-tests:
+  stage: e2e
+  when: manual   # equivalente ao workflow_dispatch (execução manual)
+
   script:
-    - echo "Executando pipeline manual no GitLab CI"
-  when: manual
+    - echo "Instalando Yarn"
+    - npm install -g yarn
+
+    - echo "Instalando dependências"
+    - yarn
+
+    - echo "Instalando browser do Playwright"
+    - yarn playwright install --with-deps
+
+    - echo "Executando testes e2e"
+    - yarn run e2e
