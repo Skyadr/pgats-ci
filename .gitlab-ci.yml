@@ -9,7 +9,7 @@ e2e-tests:
 
   script:
   
-    - echo "Instalando browser do Playwright" # equivalente ao comando yarn playwright install
+    - echo "Instalando browser do Playwright" # equivalente ao comando yarn playwright
     - npx playwright install --with-deps
 
     - echo "Executando testes e2e"
